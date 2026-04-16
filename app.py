@@ -87,7 +87,7 @@ if st.session_state.auth_pass:
     # 仅登录成功后生效，刷新间隔5000毫秒=5秒
     st_autorefresh(interval=5000, limit=None, key="autorefresh")
 
-    st.caption('✅ 数据最后更新：{}'.format(datetime.strftime(datetime.now(tz=beijing_tz), format='%d/%m/%Y, %H:%M:%S')))
+    st.caption('✅ 数据最后更新：{}'.format(datetime.strftime(datetime.now(tz=beijing_tz), format='%Y/%m/%d, %H:%M:%S')))
 
     # df = load_latest_data()
     # if df is not None:
