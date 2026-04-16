@@ -37,8 +37,8 @@ def check_auth(code: str) -> tuple[bool, str]:
     except:
         return False, "❌ 日期格式错误"
     if now > expire_date:
-        return False, f"❌ 会员已过期（到期：{expire_date}）"
-    return True, f"✅ 验证成功！会员有效期至：{expire_date}"
+        return False, "❌ 会员已过期（到期：{}）".format(expire_date)
+    return True, "✅ 验证成功！会员有效期至：{}）".format(expire_date)
 
 # ===================== 登录界面 =====================
 auth_code = st.text_input("请输入授权码", type="password")
@@ -83,7 +83,7 @@ if st.session_state.auth_pass:
     # 仅登录成功后生效，刷新间隔5000毫秒=5秒
     st_autorefresh(interval=5000, limit=None, key="autorefresh")
 
-    st.caption(f"✅ 数据最后更新：{datetime.strftime(datetime.now(tz=u'Etc/GMT-8'), format="%d/%m/%Y, %H:%M:%S")}")
+    st.caption('✅ 数据最后更新：{}'.format(datetime.strftime(datetime.now(tz=u'Etc/GMT-8'), format='%d/%m/%Y, %H:%M:%S')))
 
     # df = load_latest_data()
     # if df is not None:
